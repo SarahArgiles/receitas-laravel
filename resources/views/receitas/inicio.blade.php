@@ -22,7 +22,7 @@
             @foreach($receitas as $receita)
                 <div class="border p-4 rounded">
                     <h2 class="font-bold text-lg">{{ $receita->titulo }}</h2>
-                    <p>Categoria: {{ $receita->categoria }}</p>
+                    <p>Categoria: {{ $receita->categoria->titulo }}</p>
                     <a href="{{ route('receitas.show', $receita) }}" class="text-blue-500">Ver mais</a>
                 </div>
             @endforeach

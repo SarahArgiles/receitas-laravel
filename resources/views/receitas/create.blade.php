@@ -14,7 +14,8 @@
     <select name="categoria_id" id="categoria_id" required>
         <option value="">Selecione uma categoria</option>
         @foreach($categorias as $categoria)
-            <option value="{{ $categoria->id }}">{{ $categoria->titulo }}</option>
+            <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+
         @endforeach
     </select>
 
