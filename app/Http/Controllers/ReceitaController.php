@@ -14,12 +14,8 @@ class ReceitaController extends Controller
     public function index()
     {
         $receitas = Receita::all();  // Ou o que for necessário para listar as receitas
-<<<<<<< Updated upstream
         $categorias=Categoria::all();
         return view('receitas.inicio', compact('receitas', 'categorias'));
-=======
-        return view('receitas.index', compact('receitas'));
->>>>>>> Stashed changes
         
 
     } 
