@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Categoria;
 
 
+
 class Receita extends Model
 {
     use HasFactory;
@@ -19,14 +20,16 @@ class Receita extends Model
         'categoria_id',
         'foto',
         'dicas',
-        'user_id',
+        'usuario_id',
     ];
+    
     public function categoria()
     {
         return $this->belongsTo(Categoria::class);
     }
 
 }
+
 
 
 

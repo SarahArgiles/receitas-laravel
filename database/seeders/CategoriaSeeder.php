@@ -2,22 +2,19 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Categoria;
 
 class CategoriaSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        Categoria::create(['name' => 'Receitas fáceis']);
-        Categoria::create(['name' => 'Receitas AirFryer']);
-        Categoria::create(['name' => 'Fit']);
-        Categoria::create(['name' => 'Gourmet']);
-        Categoria::create(['name' => 'Não sabe cozinhar']);
-        Categoria::create(['name' => 'Veggie']);
+    public function run()
+    {  
+        // Categorias que você quer inserir no banco de dados
+        $categorias = ['Fáceis', 'AirFryer', 'Fit', 'Gourmet', 'Não sabe cozinhar', 'Veggie'];
+
+        // Inserir cada categoria
+        foreach ($categorias as $nome) {
+            Categoria::create(['titulo' => $nome]); // Altere 'titulo' caso seja necessário
+        }
     }
 }

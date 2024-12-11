@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('modo_preparo');
             $table->text('dicas')->nullable();
             $table->timestamps();
-        
+           // $table->unsignedBigInteger('usuario_id');
             $table->foreignId('usuario_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -33,6 +33,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('receitas', function (Blueprint $table) {
+            $table->dropForeign(['usuario_id']); // Remove a chave estrangeira
+            $table->dropColumn('usuario_id');   // Remove a coluna user_id
+        });
         Schema::dropIfExists('receitas');
     }
 };

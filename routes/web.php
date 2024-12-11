@@ -5,8 +5,10 @@ use App\Http\Controllers\ReceitaController;
 use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 
+
 // Rota inicial para exibir receitas
 Route::get('/', [ReceitaController::class, 'index'])->name('inicio');
+
 
 // Dashboard protegido por middleware de autenticação
 Route::get('/dashboard', function () {
@@ -24,11 +26,15 @@ Route::middleware('auth')->group(function () {
 Route::resource('receitas', ReceitaController::class);
 Route::resource('categorias', CategoriaController::class);
 Route::get('/receitas/create', [ReceitaController::class, 'create'])->name('receitas.create');
+Route::get('/receitas/{receita}', [ReceitaController::class, 'show'])->name('receitas.show');
 
 
 
 // Autenticação gerada pelo Breeze
 require __DIR__.'/auth.php';
+
+
+
 
 
 

@@ -3,6 +3,7 @@
 
     <label for="titulo">Título:</label>
     <input type="text" name="titulo" id="titulo" required>
+    
 
     <label for="ingredientes">Ingredientes:</label>
     <textarea name="ingredientes" id="ingredientes" rows="5" required></textarea>
@@ -14,7 +15,7 @@
     <select name="categoria_id" id="categoria_id" required>
         <option value="">Selecione uma categoria</option>
         @foreach($categorias as $categoria)
-            <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
+            <option value="{{ $categoria->id }}">{{ $categoria->titulo }}</option>
 
         @endforeach
     </select>

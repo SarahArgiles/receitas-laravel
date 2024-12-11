@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categoria;
+use App\Models\Receita; 
+
+
 
 
 
@@ -11,13 +15,26 @@ class CategoriaController extends Controller
     public function index()
 {
     $categorias = Categoria::all();
-    return view('categorias.inicio', compact('categorias'));
+    $receitas = Receita::with('categoria')->get();
+    
+    return view('inicio', compact('categorias', 'receitas'));
+   
+    
+}
+
+public function inicio()
+{
+    $categorias = Categoria::all();
+    
+    return view('inicio.blade', compact('categorias'));
+    
 }
 
 
 public function create()
 {
-    return view('categorias.create');
+    $categorias = Categoria::all(); // Busca todas as categorias
+    return view('receitas.create', compact('categorias')); // Envia para a view
 }
 
 public function store(Request $request)
@@ -60,5 +77,6 @@ public function destroy($id)
 
     return redirect()->route('categorias.index');
 }
+
 
 }
