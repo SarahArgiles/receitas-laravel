@@ -25,6 +25,15 @@
                     <h2 class="font-bold text-lg">{{ $receita->titulo }}</h2>
                     <p>Categoria: {{ optional($receita->categoria)->titulo ?? 'Sem categoria' }}</p>
                     <a href="{{ route('receitas.show', $receita->id) }}" class="text-blue-500">Ver mais</a>
+                    <div class="mt-2">
+                        <p class="text-sm text-gray-500">Compartilhar:</p>
+                        <div class="flex gap-2">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ route('receitas.show', $receita->id) }}" target="_blank" class="text-blue-700">Facebook</a>
+                            <a href="https://twitter.com/intent/tweet?url={{ route('receitas.show', $receita->id) }}&text=Confira+esta+receita!" target="_blank" class="text-blue-500">Twitter</a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ route('receitas.show', $receita->id) }}" target="_blank" class="text-blue-900">LinkedIn</a>
+                            <a href="https://api.whatsapp.com/send?text=Confira+esta+receita:+{{ route('receitas.show', $receita->id) }}" target="_blank" class="text-green-500">WhatsApp</a>
+                        </div>
+                    </div>
                 </div>
             @empty
                 <p>Não há receitas para exibir.</p>
